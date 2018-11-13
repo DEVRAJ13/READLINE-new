@@ -29,6 +29,11 @@ export class HomePage {
     addDialog.present();
   }
 
+
+  dashboard(){
+    this.navCtrl.setRoot('DashboardPage');
+  }
+
 }
 
 
