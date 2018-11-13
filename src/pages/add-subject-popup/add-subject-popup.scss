@@ -1,0 +1,47 @@
+page-add-subject-popup {
+
+    .cross-alignment{
+        color: #736c6c;
+        font-size: 24px;
+        float: right;
+    }
+
+    .marg{
+        margin-top: 5px;
+    }
+
+    .text-title{
+        font-weight: 500;
+        font-size: 19px;
+    }
+
+    .input-border{
+        border: 1px solid #c1c1c1;
+        border-radius: 5px;
+        margin-top: 7px;
+    }
+
+    .condition{
+        font-size: 12px;
+        margin-top: 0px;    
+    }
+
+}
+
+
+ion-modal {
+    position: absolute;
+    overflow: hidden;
+    max-width: 325px;
+    border-radius: 6px;
+    width: 80vw;
+    height: 60vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color: #fafafa;
+}

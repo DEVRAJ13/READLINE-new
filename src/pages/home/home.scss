@@ -1,3 +1,25 @@
 page-home {
+    .card-height{
+        height: 150px;
+        border-radius: 5px;
+        width: 150px;
+    }
+
+    ion-card:hover {
+        background-color: #eeeeee;
+    }
+
+    .align-item-center{
+        text-align: center;
+    }
+
+    .icon-size{
+        font-size: 3rem;
+        margin-top: 35px;
+    }
+
+    .text-title{
+        font-weight: bold;
+    }
 
 }
