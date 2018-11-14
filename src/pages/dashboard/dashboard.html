@@ -14,5 +14,8 @@
 
 
 <ion-content padding>
-
+  <ion-card *ngFor="let dataaa of data" (click)="sendData(dataaa)">
+    <img [src]="dataaa.image_url"/>
+    <p>{{dataaa.subject_name}}</p>
+  </ion-card>
 </ion-content>
