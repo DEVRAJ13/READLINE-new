@@ -14,16 +14,7 @@ import { map } from 'rxjs/operators';
  * Ionic pages and navigation.
  */
 
-interface Post {
-  description: string;
-  ingredients: string;
-  item_image: string;
-  nutrition_facts: string;
-  time_est: string;
-  time_title: string;
-  total_time: string;
-  item_name: string;
-}
+
 
 @IonicPage()
 @Component({
@@ -31,28 +22,16 @@ interface Post {
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-  postsCol: AngularFirestoreCollection<Post>;
-  posts: Observable<Post[]>;
   data: any;
-  
+  descriptionArr:any = [];
 
   mydata:any = [{
       "topic": [
         {
           "title":"",
-          "description": [
-            "New York Bulls",
-            "Los Angeles Kings",
-            "Golden State Warriros",
-            "Huston Rocket"
-        ],
-          "final_notes": "skhlkshlkhsklglkhlhsgilhilhgljfg;lghierhgpiherpiheprihpireh",
-          "important_points": [
-            "sfgjgjlierhierihorehiltheroihioerhoe",
-            "ufgushioerhoheriohioepioeohoiheorihoe",
-            "sdghksjhfkshghrg",
-            "eklgkhuuehuiore"
-          ],
+          "description": [],
+          "final_notes": "",
+          "important_points": [],
           "introduction": "hi there",
           "notes": "sdfgihskghihgiehrgioheriohgpiergpierhioehgioheiohgohfgh",
           "topic_images":[
@@ -91,14 +70,6 @@ export class DashboardPage {
     }];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFirestore) {
-    // this.postsCol = db.collection('recipes');
-    // this.posts = this.postsCol.valueChanges();
-
-    this.getAllPosts().subscribe((data) => {
-      this.data = data;
-      console.log("MYDATA", data);
-    });
-
   }
 
   getAllPosts(): Observable<any> {
@@ -106,13 +77,17 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DashboardPage');
-
-  //  this.addData();
+    this.getAllPosts().subscribe((data) => {
+      this.data = data;
+      console.log("MYDATA", data);
+    });
   }
 
   sendData(obj){
    console.log("listing topics", obj.content);
+   this.navCtrl.push("ListPage",{
+     data_obj: obj 
+   });
   }
 
   addData() {
