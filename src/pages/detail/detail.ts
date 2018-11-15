@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild, ElementRef,Renderer} from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+
 
 /**
  * Generated class for the DetailPage page.
@@ -14,6 +15,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'detail.html',
 })
 export class DetailPage {
+  @ViewChild(Content) content: Content;
+  start = 0;
+  threshold = 100;
+  slideHeaderPrevious = 0;
+  ionScroll:any;
+  showheader:boolean;
+  hideheader:boolean;
+  headercontent:any;
+
+
   description:any;
   imp_notes:any;
   imp_points:any;
@@ -21,13 +32,35 @@ export class DetailPage {
   notes:any;
   topic_images:any;
   title:any;
+  image_url:any;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public renderer: Renderer ,public myElement: ElementRef) {
   }
 
+  ngOnInit() {
+    // Ionic scroll element
+    this.ionScroll = this.myElement.nativeElement.getElementsByClassName("scroll-content")[0];
+    // On scroll function
+    this.ionScroll.addEventListener("scroll", () => {
+    if(this.ionScroll.scrollTop - this.start > this.threshold) {
+    this.showheader =true;
+    this.hideheader = false;
+    } else {
+    this.showheader =false;
+    this.hideheader = true;
+    }
+    if (this.slideHeaderPrevious >= this.ionScroll.scrollTop - this.start) {
+    this.showheader =false;
+    this.hideheader = true;
+    }
+    this.slideHeaderPrevious = this.ionScroll.scrollTop - this.start;
+    });
+    }
+
   ionViewDidLoad() {
-    console.log(this.navParams.get("data_obj"));
+    this.image_url = this.navParams.get("image");
+    console.log( this.image_url);
     this.description = this.navParams.get("data_obj").description;
     this.imp_notes = this.navParams.get("data_obj").final_notes;
     this.imp_points = this.navParams.get("data_obj").important_points;

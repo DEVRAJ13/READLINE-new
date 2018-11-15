@@ -16,19 +16,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ListPage {
   topic_lists:any;
   all_list_content:any = [];
+  img:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-   console.log(this.navParams.get("data_obj"));
+    this.img = this.navParams.get('image');
    this.topic_lists = this.navParams.get("data_obj");
    this.all_list_content = this.topic_lists.content.topic;
+   console.log(this.all_list_content);
   }
 
   jumpToDetail(obj){
     this.navCtrl.push("DetailPage",{
-      data_obj:obj
+      data_obj:obj,
+      image: this.img
     })
   }
 

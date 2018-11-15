@@ -13,13 +13,96 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card *ngFor="let dataaa of data" (click)="sendData(dataaa)">
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6>
+       <ion-row>
+         <ion-col col-6>
+            <ion-list>
+                <ion-item class="input-border">
+                  <ion-input  placeholder="Subject name"></ion-input>
+                </ion-item>
+              </ion-list>
+         </ion-col>
+         <ion-col col-6>
+            <ion-list>
+                <ion-item class="input-border">
+                  <ion-input  placeholder="Course name"></ion-input>
+                </ion-item>
+              </ion-list>
+         </ion-col>
+
+         <ion-row>
+           <ion-col>
+              <ion-item class="input-border">
+                  <ion-input  placeholder="IMAGE URL"></ion-input>
+                </ion-item>
+           </ion-col>
+         </ion-row>
+
+
+         <ion-row>
+            <ion-col>
+               <ion-item class="input-border-url">
+                   <ion-input  placeholder="IMAGE URL"></ion-input>
+                 </ion-item>
+            </ion-col>
+          </ion-row>
+
+
+
+
+
+       </ion-row>
+
+
+
+
+      </ion-col>
+      <ion-col col-6 >
+           <!--unused space-->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+    <!-- <ion-grid>
+        <ion-row>
+          <ion-list>
+            <ion-item class="input-border">
+              <ion-input  placeholder="Course name"></ion-input>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+              <ion-item class="input-border">
+                <ion-input  placeholder="Course name"></ion-input>
+              </ion-item>
+            </ion-list>
+
+            <ion-list>
+                <ion-item class="input-border">
+                  <ion-input  placeholder="Course name"></ion-input>
+                </ion-item>
+              </ion-list>
+
+
+              <ion-list>
+                  <ion-item class="input-border">
+                    <ion-input  placeholder="Course name"></ion-input>
+                  </ion-item>
+                </ion-list>
+        </ion-row>
+      </ion-grid>
+   -->
+
+
+
+
+
+  <ion-card *ngFor="let dataaa of data" (click)="sendData(dataaa, dataaa.image_url)">
     <img [src]="dataaa.image_url"/>
     <p>{{dataaa.subject_name}}</p>
   </ion-card>
-
-
-
-  
 </ion-content>

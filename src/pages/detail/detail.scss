@@ -1,3 +1,117 @@
 page-detail {
+    .no-padding {
+        padding: 0px !important;
+    }
 
+
+    .scroll-content{
+        top:-56px !important;
+        padding-top: 60px !important;
+        }
+        .hide-header{
+        transition : top 0.25s ease;
+        top: -56px;
+        }
+        .show-header{
+        transition : top 0.25s ease;
+        top: 0px;
+        }
+
+
+    .header-image {
+        position: relative;
+        background-size: cover;
+        background-image: url();
+        height: 40vh;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: 100%;
+    }
+
+    .header-image.card-background-page::after {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 175px;
+        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.92) 89%);
+        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.92) 89%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.92) 89%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#eb000000',GradientType=0 );
+        z-index: 99;
+    }
+
+    .main-content {
+        background-color: map-get($colors, dark);
+        box-shadow: 0px -1px 13px 1px rgba(0,0,0,0.3);
+    }
+
+    .scroll-content {
+        padding-top: 0 !important;
+    }
+
+    ion-header {
+        backdrop-filter: blur(0px);
+    }
+
+    // ion-navbar {
+    //     box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+    // }
+
+    .btn-shape {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: #f7ef00;
+    }
+
+    .ingred-style {
+        color: #111;
+        font-family: fantasy;
+        font-size: 1.5rem;
+        word-spacing: 5px;
+    }
+
+    .list-header-md {
+        padding-left: 16px;
+        margin-bottom: 0px;
+        min-height: 4.5rem;
+        border-top: 1px solid #dedede;
+        font-style: italic;
+        font-size: 1.4rem;
+        color: #424242;
+    }
+
+    .card-background-page {
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+        
+        .card-title {
+            position: absolute;
+            top: unset;
+            font-size: 1.5em;
+            width: 100%;
+            color: #fff;
+            margin-left: 10px;
+            margin-right: 10px;
+            bottom: 50px;
+            z-index: 999;
+            font-family: fantasy;
+        }
+      
+        .card-subtitle {
+            font-size: 1.0em;
+            position: absolute;
+            top: unset;
+            width: 100%;
+            color: #fff;
+            bottom: 5px;
+            z-index: 999;
+        }
+      }
 }

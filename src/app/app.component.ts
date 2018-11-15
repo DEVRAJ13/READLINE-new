@@ -12,10 +12,9 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // let status bar overlay webview
-statusBar.overlaysWebView(false);
-
-// set status bar to white
-statusBar.backgroundColorByHexString('#ffffff');
+      statusBar.overlaysWebView(false);
+      // set status bar to white
+      statusBar.backgroundColorByHexString('#ffffff');
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();

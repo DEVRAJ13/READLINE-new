@@ -83,10 +83,11 @@ export class DashboardPage {
     });
   }
 
-  sendData(obj){
+  sendData(obj, img){
    console.log("listing topics", obj.content);
    this.navCtrl.push("ListPage",{
-     data_obj: obj 
+     data_obj: obj ,
+     image: img
    });
   }
 
